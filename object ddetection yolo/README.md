@@ -28,3 +28,6 @@ docker run -p 5001:5001 object-detection-platform
 
 - Render: use the included render.yaml
 - Hugging Face Spaces: deploy the app as a Python app with requirements.txt
+
+
+Updated on 15 July 2026
