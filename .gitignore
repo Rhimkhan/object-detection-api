@@ -1,0 +1,33 @@
+﻿# Virtual environments
+.venv/
+.venv311/
+venv/
+env/
+ENV/
+object ddetection yolo/.venv311/
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+# YOLO / training outputs
+runs/
+weights/
+*.pt
+*.pth
+*.onnx
+*.engine
+
+# Datasets
+datasets/
+
+# Logs
+*.log
+
+# OS/IDE
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+object ddetection yolo/object-detection-api/
