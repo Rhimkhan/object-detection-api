@@ -10,3 +10,5 @@ tqdm>=4.4
 python-dotenv>=1.0
 gunicorn>=22.0
 gradio>=4.0
+
+# reviewed dependencies
