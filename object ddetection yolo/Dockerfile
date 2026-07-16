@@ -10,3 +10,5 @@ COPY . .
 EXPOSE 5001
 
 CMD ["python", "run.py"]
+
+# optimized build
