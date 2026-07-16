@@ -135,3 +135,5 @@ class ObjectDetector:
         except Exception as exc:
             print(f"Video detection failed: {exc}")
             return False
+
+# improved detection logic comment
