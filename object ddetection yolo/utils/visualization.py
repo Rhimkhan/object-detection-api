@@ -10,3 +10,5 @@ def summarize_detections(detections: List[Dict[str, Any]]) -> str:
     for name in names:
         counts[name] = counts.get(name, 0) + 1
     return ", ".join(f"{label}: {count}" for label, count in counts.items())
+
+# visualization improvements planned
