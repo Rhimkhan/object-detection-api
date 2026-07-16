@@ -51,3 +51,5 @@ class YOLOTrainer:
             }
         except Exception as exc:  # pragma: no cover - defensive path
             return {"success": False, "error": str(exc)}
+
+# added training notes
