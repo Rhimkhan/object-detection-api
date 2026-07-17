@@ -43,3 +43,7 @@ runs/
 # OS
 .DS_Store
 Thumbs.db
+
+.env
+uploads/
+*.pyc
