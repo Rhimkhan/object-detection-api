@@ -12,3 +12,5 @@ gunicorn>=22.0
 gradio>=4.0
 
 # reviewed dependencies
+
+# pinned versions checked
