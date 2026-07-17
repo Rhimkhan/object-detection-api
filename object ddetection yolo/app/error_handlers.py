@@ -2,7 +2,7 @@
 
 
 def register_error_handlers(app):
-    """Attach JSON error handlers to the Flask app for consistent API responses."""
+    # Attach JSON error handlers to the Flask app for consistent API responses
 
     @app.errorhandler(400)
     def bad_request(error):

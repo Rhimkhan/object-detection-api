@@ -1,7 +1,7 @@
 ﻿import os
 
 class Config:
-    \"\"\"Centralized application configuration, loaded from environment variables where possible.\"\"\"
+    # Centralized application configuration, loaded from environment variables where possible
     UPLOAD_FOLDER = os.environ.get("UPLOAD_FOLDER", os.path.join(os.getcwd(), "uploads"))
     OUTPUT_FOLDER = os.environ.get("OUTPUT_FOLDER", os.path.join(os.getcwd(), "outputs"))
     ALLOWED_EXTENSIONS = {"png", "jpg", "jpeg"}
