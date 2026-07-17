@@ -23,7 +23,7 @@ logger.info(f"Starting Object Detection API with config: MODEL_PATH={Config.MODE
 
 
 def open_browser() -> None:
-    \"\"\"Open browser automatically after app starts.\"\"\"
+    # Open browser automatically after app starts
     webbrowser.open("http://127.0.0.1:5001", new=0, autoraise=True)
 
 
