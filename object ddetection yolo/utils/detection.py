@@ -137,3 +137,5 @@ class ObjectDetector:
             return False
 
 # improved detection logic comment
+
+# threshold tuning planned
