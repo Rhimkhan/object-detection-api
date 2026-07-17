@@ -29,3 +29,5 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
+# webcam fps logging planned
