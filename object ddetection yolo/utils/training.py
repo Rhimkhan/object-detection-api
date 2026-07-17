@@ -53,3 +53,5 @@ class YOLOTrainer:
             return {"success": False, "error": str(exc)}
 
 # added training notes
+
+# checkpoint saving reviewed
