@@ -31,3 +31,11 @@ if __name__ == "__main__":
     main()
 
 # webcam fps logging planned
+
+import time
+
+def calculate_fps(prev_time):
+    """Return current FPS and updated timestamp, given the previous frame's timestamp."""
+    current_time = time.time()
+    fps = 1 / (current_time - prev_time) if current_time != prev_time else 0
+    return round(fps, 1), current_time
