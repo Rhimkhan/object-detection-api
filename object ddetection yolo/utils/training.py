@@ -55,3 +55,7 @@ class YOLOTrainer:
 # added training notes
 
 # checkpoint saving reviewed
+
+def get_training_summary(epochs: int, batch_size: int, model_name: str) -> str:
+    """Return a human-readable summary of training configuration for logging."""
+    return f"Training {model_name} for {epochs} epochs with batch size {batch_size}"
