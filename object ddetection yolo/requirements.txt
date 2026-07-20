@@ -19,3 +19,5 @@ python-dotenv
 
 # Note: run 'pip freeze > requirements.txt' after adding new packages
 # to keep exact versions locked for reproducible builds.
+
+opencv-python
