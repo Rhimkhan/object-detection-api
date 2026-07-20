@@ -35,3 +35,10 @@ Updated on 15 July 2026
 <!-- update 1 -->
 
 <!-- update 2 -->
+
+
+## Recent Improvements
+- Image preprocessing utility for consistent model input
+- Clean JSON detection formatter
+- Drag-and-drop UI with live preview
+- FPS tracking for webcam demo
