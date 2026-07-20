@@ -1,48 +1,109 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Object Detection</title>
-  <style>
-    body { font-family: Arial, sans-serif; max-width: 600px; margin: 40px auto; }
-    #dropzone {
-      border: 2px dashed #888; border-radius: 8px; padding: 40px;
-      text-align: center; color: #666; cursor: pointer;
-    }
-    #dropzone.dragover { background: #f0f8ff; border-color: #4a90e2; }
-    #preview { max-width: 100%; margin-top: 20px; display: none; }
-  </style>
-</head>
-<body>
-  <h1>YOLO Object Detection</h1>
-  <div id="dropzone">Drag & drop an image here, or click to select</div>
-  <input type="file" id="fileInput" accept="image/*" style="display:none">
-  <img id="preview" alt="Preview">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Professional Object Detection Platform</title>
+    <style>
+      body { font-family: Arial, sans-serif; margin: 0; padding: 2rem; background: linear-gradient(135deg, #0f172a, #1d4ed8); color: #f8fafc; }
+      .container { max-width: 1200px; margin: 0 auto; background: rgba(15, 23, 42, 0.92); padding: 2rem; border-radius: 20px; box-shadow: 0 20px 45px rgba(0,0,0,0.25); }
+      h1, h2, h3 { margin-top: 0; }
+      .hero { margin-bottom: 1.5rem; }
+      .grid { display: grid; gap: 1.25rem; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); margin-top: 1rem; }
+      .card { border: 1px solid #334155; border-radius: 14px; padding: 1rem; background: #111827; }
+      form { display: flex; flex-direction: column; gap: 0.75rem; }
+      input[type="file"], input[type="text"] { padding: 0.65rem; border-radius: 8px; border: 1px solid #475569; background: #020617; color: white; }
+      button { background: linear-gradient(135deg, #38bdf8, #2563eb); color: white; border: none; padding: 0.8rem 1rem; border-radius: 8px; cursor: pointer; font-weight: 600; }
+      .pill { display: inline-block; padding: 0.25rem 0.6rem; border-radius: 999px; background: #1e3a8a; margin: 0.25rem 0.25rem 0 0; font-size: 0.9rem; }
+      .result { margin-top: 1.5rem; padding: 1rem; border-radius: 12px; background: #0f172a; }
+      img, video { max-width: 100%; border-radius: 12px; margin-top: 1rem; }
+      ul { padding-left: 1.25rem; }
+      code { background: #1f2937; padding: 0.1rem 0.35rem; border-radius: 6px; }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="hero">
+        <h1>Professional Object Detection Platform</h1>
+        <p>YOLO-powered image detection, video processing, training workflow, webcam guidance, and deployment-ready APIs.</p>
+        <div>
+          <span class="pill">Custom training</span>
+          <span class="pill">Video processing</span>
+          <span class="pill">Webcam support</span>
+          <span class="pill">Render / Hugging Face / Docker</span>
+          <span class="pill">REST API</span>
+        </div>
+      </div>
 
-  <script>
-    const dropzone = document.getElementById("dropzone");
-    const fileInput = document.getElementById("fileInput");
-    const preview = document.getElementById("preview");
+      <div class="grid">
+        <div class="card">
+          <h3>Image Detection</h3>
+          <form action="/detect" method="post" enctype="multipart/form-data">
+            <input type="file" name="image" accept="image/*" required />
+            <button type="submit">Detect Objects</button>
+          </form>
+        </div>
 
-    dropzone.addEventListener("click", () => fileInput.click());
-    dropzone.addEventListener("dragover", (e) => { e.preventDefault(); dropzone.classList.add("dragover"); });
-    dropzone.addEventListener("dragleave", () => dropzone.classList.remove("dragover"));
-    dropzone.addEventListener("drop", (e) => {
-      e.preventDefault();
-      dropzone.classList.remove("dragover");
-      handleFile(e.dataTransfer.files[0]);
-    });
-    fileInput.addEventListener("change", () => handleFile(fileInput.files[0]));
+        <div class="card">
+          <h3>Video Detection</h3>
+          <form action="/detect/video" method="post" enctype="multipart/form-data">
+            <input type="file" name="video" accept="video/*" required />
+            <button type="submit">Process Video</button>
+          </form>
+        </div>
 
-    function handleFile(file) {
-      if (!file) return;
-      const reader = new FileReader();
-      reader.onload = (e) => {
-        preview.src = e.target.result;
-        preview.style.display = "block";
-      };
-      reader.readAsDataURL(file);
-    }
-  </script>
-</body>
+        <div class="card">
+          <h3>Training Pipeline</h3>
+          <form action="/api/train" method="post">
+            <input type="text" name="data_yaml" placeholder="Path to data.yaml" required />
+            <input type="text" name="epochs" value="10" />
+            <input type="text" name="imgsz" value="640" />
+            <button type="submit">Start Training</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="grid">
+        <div class="card">
+          <h3>Deployment Options</h3>
+          <p>Render, Hugging Face Spaces, and Docker are supported for production deployment.</p>
+          <p>Webcam support is ready for local use with a camera-enabled runtime.</p>
+        </div>
+        <div class="card">
+          <h3>API Endpoints</h3>
+          <ul>
+            <li><code>/api/health</code></li>
+            <li><code>/api/info</code></li>
+            <li><code>/api/train</code></li>
+            <li><code>/api/webcam</code></li>
+            <li><code>/api/demo</code></li>
+          </ul>
+        </div>
+      </div>
+
+      {% if summary %}
+      <div class="result">
+        <h3>Result</h3>
+        <p>{{ summary }}</p>
+        {% if detections %}
+        <ul>
+          {% for detection in detections %}
+          <li>{{ detection.class_name }} — confidence {{ detection.confidence }} — bbox {{ detection.bbox }}</li>
+          {% endfor %}
+        </ul>
+        {% endif %}
+      </div>
+      {% endif %}
+
+      {% if image_url %}
+      <img src="{{ image_url }}" alt="Annotated result" />
+      {% endif %}
+
+      {% if video_url %}
+      <video controls src="{{ video_url }}"></video>
+      {% endif %}
+    </div>
+  </body>
 </html>
+
+<!-- UI polish planned -->
